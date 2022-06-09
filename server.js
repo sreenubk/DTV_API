@@ -1,19 +1,14 @@
 const dotenv = require('dotenv').config();
 // dotenv.config({path: '.env'});
 const express = require('express')
+const todoRoutes = require('./routes/todos')
 const http = require('http');
-const todos = [
-    {id:1, text:'Hello Wordl'},
-    {id:2, text:'Real World'},
-    {id:2, text: 'My Wolrd'},
-    {id:3, text: 'Our World'},
-    {id:4, text: 'Mid World'},
-    {id:5, text: 'Nice World'}
-]
+
 const app = express();
+app.use('/api/v1/todos',todoRoutes);
+
 const PORT = process.env.PORT || 5000
 app.listen(PORT, console.log(`Server running on port : ${PORT} in environment : ${process.env.NODE_ENV}`));
-
 
 
 // const server = http.createServer((req,res) => {
