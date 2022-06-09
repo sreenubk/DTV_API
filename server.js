@@ -3,14 +3,11 @@ const dotenv = require('dotenv').config();
 const express = require('express')
 const todoRoutes = require('./routes/todos')
 const http = require('http');
+const logger = require('./middleware/logger')
 
 const app = express();
 
-const logger = (req,res,next) =>{
-    req.hello = 'This is middle world'
-    console.log('middle ware ran');
-    next();
-}
+
 app.use(logger)
 app.use('/api/v1/todos',todoRoutes);
 
