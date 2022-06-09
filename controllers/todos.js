@@ -23,7 +23,7 @@ exports.getTodo = (req, res,next) =>{
 // @route POST /api/v1/todos
 // @access PUBLIC
 exports.createTodo = (req, res,next) =>{
-    res.status(200).json({success: true, data: `Creating A todo : `});
+    res.status(200).json({success: true, data: `Creating A todo : `, middle: req.hello });
 }
 // @desc  Update  TODO
 // @route PUT /api/v1/todos/:id
