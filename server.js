@@ -4,11 +4,14 @@ const express = require('express')
 const todoRoutes = require('./routes/todos')
 const http = require('http');
 const logger = require('./middleware/logger')
+const morgan = require('morgan');
 
 const app = express();
 
-
-app.use(logger)
+if(process.env.NODE_ENV === 'development'){
+    app.use(morgan('dev'))
+}
+    
 app.use('/api/v1/todos',todoRoutes);
 
 const PORT = process.env.PORT || 5000
